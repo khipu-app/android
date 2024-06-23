@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "app.khipu"
+    namespace = "app.khipu.android"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "app.khipu"
+        applicationId = "app.khipu.android"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

@@ -1,4 +1,4 @@
-package app.khipu
+package app.khipu.android
 
 import org.junit.Test
 

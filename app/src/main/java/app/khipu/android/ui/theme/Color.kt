@@ -1,4 +1,4 @@
-package app.khipu.ui.theme
+package app.khipu.android.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
