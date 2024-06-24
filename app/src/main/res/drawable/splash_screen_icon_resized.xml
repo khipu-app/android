@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:height="104dp"
+        android:width="73dp"
+        android:drawable="@drawable/splash_screen_icon_full_size"
+        android:gravity="center" />
+</layer-list>
