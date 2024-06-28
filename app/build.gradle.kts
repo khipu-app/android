@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.hilt)
+    id("kotlin-kapt")
 }
 
 android {
@@ -69,4 +71,12 @@ dependencies {
 
     //splashscreen
     implementation(libs.androidx.splashscreen)
+
+    //hilt
+    implementation(libs.hilt)
+    kapt(libs.hilt.compiler)
+}
+
+kapt {
+    correctErrorTypes = true
 }
