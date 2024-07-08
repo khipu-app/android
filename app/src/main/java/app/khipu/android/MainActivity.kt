@@ -3,49 +3,53 @@ package app.khipu.android
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import app.khipu.android.login.LoginScreen
+import app.khipu.android.login.LoginViewModel
 import app.khipu.android.ui.theme.KhipuTheme
 import dagger.hilt.android.AndroidEntryPoint
 
+@OptIn(ExperimentalFoundationApi::class)
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    //todo restrict landscape mode depending on the screen's width (and create corresponding Composables?)
+    private val loginViewModel by viewModels<LoginViewModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             KhipuTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+                    LoginScreen(
+                        modifier = Modifier.padding(innerPadding),
+                        login = loginViewModel.login.observeAsState().value ?: "",
+                        onLoginChange = { loginViewModel.login.value = it },
+                        password = loginViewModel.password.observeAsState().value ?: "",
+                        onPasswordChange = { loginViewModel.password.value = it },
+                        onLoginClick = { /*TODO*/ },
+                        onChangePasswordClick = { /*TODO*/ },
+                        onRegisterClick = { /*TODO*/ },
+                        onAppleClick = { /*TODO*/ },
+                        onGoogleClick = { /*TODO*/ },
+                        onVkClick = { /*TODO*/ },
+                        onYandexClick = { /*TODO*/ },
+                        onSberClick = { /*TODO*/ },
+                        onQrClick = { /*TODO*/ },
+                        onNfcClick = { /*TODO*/ },
+                        onFingerprintClick = { /*TODO*/ },
+                        onFaceClick = { /*TODO*/ },
+                        onSignatureClick = { /*TODO*/ }
                     )
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    KhipuTheme {
-        Greeting("Android")
     }
 }

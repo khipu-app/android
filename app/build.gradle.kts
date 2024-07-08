@@ -92,6 +92,9 @@ dependencies {
     //hilt
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
+
+    //compose additional dependencies
+    implementation(libs.compose.runtime.livedata)
 }
 
 kapt {

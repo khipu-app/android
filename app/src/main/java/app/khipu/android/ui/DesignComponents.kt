@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.ExperimentalMaterialApi
@@ -71,6 +72,8 @@ fun StandardAppOutlinedTextField(
     text: String,
     onTextChange: (String) -> Unit,
     singleLine: Boolean = true,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    visualTransformation: VisualTransformation = VisualTransformation.None
 ) {
     BasicTextField(
         modifier = modifier
@@ -80,12 +83,14 @@ fun StandardAppOutlinedTextField(
         onValueChange = onTextChange,
         textStyle = screenHeader.copy(textAlign = TextAlign.Start),
         singleLine = singleLine,
+        keyboardOptions = keyboardOptions,
+        visualTransformation = visualTransformation
     ) {
         TextFieldDefaults.TextFieldDecorationBox(
             value = text,
             innerTextField = {
                 if (text.isBlank()) {
-                    //todo center horizontally later
+                    //todo ensure centered horizontally
                     Text(
                         text = hint,
                         color = PlaceholderColor,
@@ -98,7 +103,7 @@ fun StandardAppOutlinedTextField(
             },
             enabled = true,
             singleLine = singleLine,
-            visualTransformation = VisualTransformation.None,
+            visualTransformation = visualTransformation,
             interactionSource = remember { MutableInteractionSource() },
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 textColor = TextColor,

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="enter">Войти</string>
+    <string name="with_login_password">с логином/паролем</string>
+    <string name="username">имя пользователя</string>
+    <string name="password">пароль</string>
+    <string name="dont_remember_password">Не помню пароль</string>
+    <string name="registration">Регистрация</string>
+    <string name="with_service_id">с ID сервиса</string>
+
+    <!--Services' names-->
+    <string name="yandex">Яндекс</string>
+    <string name="sber">Сбер</string>
+
+    <string name="with_scanning">со сканированием</string>
+    <string name="qr_code">QR-кода</string>
+    <string name="nfc_tag">NFC-метки</string>
+    <string name="fingerprint">отпечатка</string>
+    <string name="face">лица</string>
+    <string name="signature">подписи</string>
+</resources>
