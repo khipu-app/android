@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -5,9 +8,22 @@ plugins {
     id("kotlin-kapt")
 }
 
+val localPropertiesFile = rootProject.file("local.properties")
+val properties = Properties()
+properties.load(FileInputStream(localPropertiesFile))
+
 android {
     namespace = "app.khipu.android"
     compileSdk = 34
+
+    signingConfigs {
+        create("release") {
+            storeFile = file(properties["storeFile"].toString())
+            storePassword = properties["storePassword"].toString()
+            keyAlias = properties["keyAlias"].toString()
+            keyPassword = properties["keyPassword"].toString()
+        }
+    }
 
     defaultConfig {
         applicationId = "app.khipu.android"
@@ -24,11 +40,12 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("release")
         }
     }
     compileOptions {
