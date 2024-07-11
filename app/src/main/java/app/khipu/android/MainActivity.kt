@@ -1,5 +1,7 @@
 package app.khipu.android
 
+import android.annotation.SuppressLint
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -19,12 +21,17 @@ import dagger.hilt.android.AndroidEntryPoint
 @OptIn(ExperimentalFoundationApi::class)
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    //todo restrict landscape mode depending on the screen's width (and create corresponding Composables?)
     private val loginViewModel by viewModels<LoginViewModel>()
 
+    @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
         super.onCreate(savedInstanceState)
+
+        if (resources.getBoolean(R.bool.portrait_only)) {
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        }
+
         setContent {
             KhipuTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
