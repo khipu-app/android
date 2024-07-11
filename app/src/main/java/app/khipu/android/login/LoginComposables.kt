@@ -25,6 +25,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -66,6 +67,7 @@ fun LoginScreen(
 ) {
     val coroutineScope = rememberCoroutineScope()
     val pagerState = rememberPagerState(pageCount = { 3 })
+    val keyboardController = LocalSoftwareKeyboardController.current
 
     Column(
         modifier = modifier
@@ -85,7 +87,6 @@ fun LoginScreen(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            //todo close and reopen keyboard on user's click on buttons
             StandardAppButton(
                 modifier = Modifier
                     .size(36.dp),
@@ -98,6 +99,7 @@ fun LoginScreen(
                 coroutineScope.launch {
                     val previousPageIndex =
                         if (pagerState.currentPage == 0) pagerState.pageCount - 1 else pagerState.currentPage - 1
+                    keyboardController?.hide()
                     pagerState.animateScrollToPage(previousPageIndex)
                 }
             }
@@ -155,6 +157,7 @@ fun LoginScreen(
                 coroutineScope.launch {
                     val nextPageIndex =
                         if (pagerState.currentPage == pagerState.pageCount - 1) 0 else pagerState.currentPage + 1
+                    keyboardController?.hide()
                     pagerState.animateScrollToPage(nextPageIndex)
                 }
             }
