@@ -42,7 +42,6 @@ import app.khipu.android.ui.theme.screenTitle
 import kotlinx.coroutines.launch
 
 //todo test adaptive design on different devices to ensure equal UI
-//todo adapt interface for landscape orientation
 @ExperimentalFoundationApi
 @Composable
 fun LoginScreen(
@@ -81,10 +80,7 @@ fun LoginScreen(
             style = screenTitle
         )
         Row(
-            modifier = Modifier
-                .padding(horizontal = 20.dp)
-                .fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
+            horizontalArrangement = Arrangement.spacedBy(30.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             StandardAppButton(
