@@ -13,3 +13,6 @@ val Pink40 = Color(0xFF7D5260)
 val PanelBackground = Color(0xFF38383C)
 val TextColor = Color(0xFF38383B)
 val PlaceholderColor = Color(0xFFEBEBEB)
+
+val PinDotActiveColor = Color(0xFF1B1B1B)
+val PinDotInactiveColor = Color(0xFF797979)

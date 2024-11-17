@@ -1,24 +1,21 @@
 <resources>
     <string name="app_name" translatable="false">Khipu</string>
     <string name="enter">Enter</string>
-    <string name="with_login_password">with login/password</string>
+    <string name="on_server">on server</string>
     <string name="username">username</string>
     <string name="password">password</string>
+    <string name="ip_domain">IP / domain</string>
     <string name="dont_remember_password">Don\'t remember password</string>
     <string name="registration">Registration</string>
-    <string name="with_service_id">with service ID</string>
+    <string name="in_cloud_storage">in cloud storage</string>
 
     <!--Services' names-->
-    <string name="apple" translatable="false">Apple</string>
-    <string name="google" translatable="false">Google</string>
-    <string name="VK" translatable="false">VK</string>
-    <string name="yandex">Yandex</string>
-    <string name="sber">Sber</string>
+    <string name="apple_icloud" translatable="false">Apple iCloud</string>
+    <string name="google_drive" translatable="false">Google Drive</string>
+    <string name="dropbox" translatable="false">Dropbox</string>
+    <string name="yandex_drive">Yandex Drive</string>
+    <string name="sber_drive">SberDrive</string>
+    <string name="mailru_cloud">Mail.ru Cloud</string>
 
-    <string name="with_scanning">with scanning of</string>
-    <string name="qr_code">QR-code</string>
-    <string name="nfc_tag">NFC-tag</string>
-    <string name="fingerprint">fingerprint</string>
-    <string name="face">face</string>
-    <string name="signature">signature</string>
+    <string name="in_personal_vault">in personal vault</string>
 </resources>

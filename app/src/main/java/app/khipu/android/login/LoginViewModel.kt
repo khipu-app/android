@@ -9,4 +9,6 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor() : ViewModel() {
     val login = MutableLiveData("")
     val password = MutableLiveData("")
+    val ipDomain = MutableLiveData("")
+    val personalVaultCode = MutableLiveData("")
 }

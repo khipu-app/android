@@ -6,15 +6,16 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.hilt)
     id("kotlin-kapt")
+    alias(libs.plugins.compose.compiler)
 }
 
 val localPropertiesFile = rootProject.file("local.properties")
-val properties = Properties()
-properties.load(FileInputStream(localPropertiesFile))
+val props = Properties()
+props.load(FileInputStream(localPropertiesFile))
 
 android {
     namespace = "app.khipu.android"
-    compileSdk = 34
+    compileSdk = 35
 
     signingConfigs {
         create("release") {
@@ -28,7 +29,7 @@ android {
     defaultConfig {
         applicationId = "app.khipu.android"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -95,6 +96,7 @@ dependencies {
 
     //compose additional dependencies
     implementation(libs.compose.runtime.livedata)
+    implementation(libs.compose.extended.icons)
 }
 
 kapt {

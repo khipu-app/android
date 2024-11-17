@@ -15,6 +15,12 @@ val firaMonoFamily = FontFamily(
     Font(R.font.firamono_bold, FontWeight.Bold)
 )
 
+val firaSansFamily = FontFamily(
+    Font(R.font.firasans_regular),
+    Font(R.font.firasans_medium, FontWeight.Medium),
+    Font(R.font.firasans_bold, FontWeight.Bold)
+)
+
 val Typography = Typography(
     defaultFontFamily = firaMonoFamily
 )
@@ -64,7 +70,7 @@ val paragraph = TextStyle(
 )
 
 val commented = TextStyle(
-    fontFamily = firaMonoFamily,
+    fontFamily = firaSansFamily,
     fontWeight = FontWeight.Medium,
     fontSize = 16.sp,
     lineHeight = 16.sp,

@@ -41,19 +41,20 @@ class MainActivity : ComponentActivity() {
                         onLoginChange = { loginViewModel.login.value = it },
                         password = loginViewModel.password.observeAsState().value ?: "",
                         onPasswordChange = { loginViewModel.password.value = it },
+                        ipDomain = loginViewModel.ipDomain.observeAsState().value ?: "",
+                        onIpDomainChange = { loginViewModel.ipDomain.value = it },
                         onLoginClick = { /*TODO*/ },
                         onChangePasswordClick = { /*TODO*/ },
                         onRegisterClick = { /*TODO*/ },
                         onAppleClick = { /*TODO*/ },
                         onGoogleClick = { /*TODO*/ },
-                        onVkClick = { /*TODO*/ },
-                        onYandexClick = { /*TODO*/ },
-                        onSberClick = { /*TODO*/ },
-                        onQrClick = { /*TODO*/ },
-                        onNfcClick = { /*TODO*/ },
+                        onDropboxClick = { /*TODO*/ },
+                        onYandexDriveClick = { /*TODO*/ },
+                        onSberDriveClick = { /*TODO*/ },
+                        onMailruCloudClick = { /*TODO*/ },
                         onFingerprintClick = { /*TODO*/ },
-                        onFaceClick = { /*TODO*/ },
-                        onSignatureClick = { /*TODO*/ }
+                        personalVaultCode = loginViewModel.personalVaultCode.observeAsState().value ?: "",
+                        onPersonalVaultCodeValueChange = { if (it.length <= 4) loginViewModel.personalVaultCode.value = it }
                     )
                 }
             }
