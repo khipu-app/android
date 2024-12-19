@@ -35,6 +35,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -118,11 +119,15 @@ fun LoginScreen(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 HorizontalPager(
+                    modifier = Modifier
+                        .testTag("Pager"),
                     state = pagerState,
                     userScrollEnabled = false
                 ) {
                     when (it) {
                         0 -> LoginOnServer(
+                            modifier = Modifier
+                                .testTag("LoginOnServer"),
                             login = login,
                             onLoginChange = onLoginChange,
                             password = password,
@@ -135,6 +140,8 @@ fun LoginScreen(
                         )
 
                         1 -> CloudStorageLogin(
+                            modifier = Modifier
+                                .testTag("CloudStorageLogin"),
                             onAppleClick = onAppleClick,
                             onGoogleClick = onGoogleClick,
                             onDropboxClick = onDropboxClick,
@@ -144,6 +151,8 @@ fun LoginScreen(
                         )
 
                         2 -> PersonalVaultLogin(
+                            modifier = Modifier
+                                .testTag("PersonalVaultLogin"),
                             personalVaultCode = personalVaultCode,
                             onPersonalVaultCodeValueChange = onPersonalVaultCodeValueChange,
                             onFingerprintClick = onFingerprintClick
